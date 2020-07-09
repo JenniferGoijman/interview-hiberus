@@ -5,6 +5,7 @@ import './App.css';
 
 import Login from './containers/Login/Login';
 import Register from './containers/Register/Register';
+import Movies from './containers/Movies/Movies';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Switch>
           <Route path='/login' component={Login} exact />
           <Route path='/register' component={Register} exact />
+          <Route path='' component={Movies} exact />
         </Switch>
       </BrowserRouter>
   );
