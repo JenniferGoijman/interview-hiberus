@@ -4,8 +4,7 @@ import store from '../store';
 export const getAll = async() => {
     try {
         //const res = await axios.get('http://localhost:3001/phones');
-        const res = { 
-            results: [
+        const res = [ 
             {
                 popularity: 467.358,
                 vote_count: 1844,
@@ -101,11 +100,11 @@ export const getAll = async() => {
                 vote_average: 7.3,
                 overview: "Immediately after the events of The Desolation of Smaug, Bilbo and the dwarves try to defend Erebor's mountain of treasure from others who claim it: the men of the ruined Laketown and the elves of Mirkwood. Meanwhile an army of Orcs led by Azog the Defiler is marching on Erebor, fueled by the rise of the dark lord Sauron. Dwarves, elves and men must unite, and the hope for Middle-Earth falls into Bilbo's hands.",
                 release_date: "2014-12-10"
-            } ]
-        }
+            }
+        ]
         store.dispatch({
             type: 'GET_ALL_MOVIES',
-            payload: res.data
+            payload: res
         })
         return res;
     } catch (error) {
