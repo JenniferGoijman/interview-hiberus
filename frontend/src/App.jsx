@@ -6,7 +6,7 @@ import Login from './containers/Login/Login';
 
 function App() {
   return (
-    <div></div>
+    <Login></Login>
   );
 }
 
