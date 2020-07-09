@@ -1,8 +1,7 @@
 import React from 'react';
 import { Form, Input, Button } from 'antd';
-
-const layout = { labelCol: { span: 8 }, wrapperCol: { span: 16 } };
-const tailLayout = { wrapperCol: { offset: 8, span: 16 } };
+import './Login.scss';
+import Logo from '../../img/logo.png';
 
 const Login = () => {
     const onFinish = values => {
@@ -15,19 +14,28 @@ const Login = () => {
 
     return (
         <div className="login-container">
-            <Form {...layout} name="basic" initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed}>
-                <Form.Item label="Username" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
-                    <Input />
-                </Form.Item>
-                <Form.Item label="Password" name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
-                    <Input.Password />
-                </Form.Item>
-                <Form.Item {...tailLayout}>
-                    <Button type="primary" htmlType="submit">
-                        Submit
-                    </Button>
-                </Form.Item>
-            </Form>
+            <div className="form">
+                <div className="header">
+                    <div className="logo">
+                        <img src={Logo} alt="ACME logo"/>
+                    </div>
+                </div>
+                <Form name="login" onFinish={onFinish} onFinishFailed={onFinishFailed}>
+                    <Form.Item name="username" style={{width:'100%'}}
+                        rules={[{ required: true, message: 'Please input your username!' }]} >
+                        <Input placeholder="Username" />
+                    </Form.Item>
+                    <Form.Item name="password" style={{width:'100%'}}
+                        rules={[{ required: true, message: 'Please input your password!' }]}>
+                        <Input.Password placeholder="Password" />
+                    </Form.Item>
+                    <Form.Item>
+                        <Button htmlType="submit" style={{width:'100%'}}>
+                            Submit
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </div>
         </div>
     )
 }
