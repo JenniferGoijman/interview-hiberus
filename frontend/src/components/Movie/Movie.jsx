@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Movie.scss';
 import { Rate } from 'antd';
 
 const Movie = ({movie}) => {
+    const [rating, setRating] = useState(movie.vote_average/2);
+
+    const handleRatingChange = value => {
+        setRating(value);
+    };
+
     return (
-        <div className="movie-container">
-            <span class="movie-rating">
-                <span><Rate allowHalf defaultValue={movie.vote_average/2} /></span>
+        <div className="movie-container" key={movie.id}>
+            <span className="movie-rating">
+                <span><Rate allowHalf value={rating} onChange={handleRatingChange}/></span>
             </span>
             <img src={"http://image.tmdb.org/t/p/w185" + movie.poster_path} />
             <div className="title">{movie.original_title}</div>
