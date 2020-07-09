@@ -1,0 +1,27 @@
+.movie-container {
+    width: 185px;
+    border-radius: 5px;        
+    margin: 10px;
+
+    img {
+        border-radius: 5px;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,.05), 0 0 8px 0 rgba(0,0,0,.1);
+    }
+
+    img:hover {
+        box-shadow: 0px 0px 3px 3px #1890ff;
+        cursor: pointer;
+    }
+
+    .title {
+        font-weight: bold;
+        max-height: 20px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .date {
+        font-size: smaller;
+    }
+}

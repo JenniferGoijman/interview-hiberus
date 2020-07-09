@@ -4,6 +4,7 @@ import './Movies.scss';
 //import { Spin, Breadcrumb, Slider, InputNumber, Select } from 'antd';
 import { getAll } from '../../redux/actions/movies';
 //import PhoneInCatalogue from '../../components/PhoneInCatalogue/PhoneInCatalogue';
+import Movie from '../../components/Movie/Movie';
 
 const Movies = props => {
     useEffect(() => {
@@ -13,12 +14,7 @@ const Movies = props => {
     return (
         <div className="movies-container">
             {props.movies.map(movie =>
-                <div className="movie-container">
-                    {/* <div>{movie.overview}</div> */}
-                    <img src={"http://image.tmdb.org/t/p/w185" + movie.poster_path} />
-                    <div className="title">{movie.original_title}</div>
-                    <div className="date">{movie.release_date.slice(0, 4)}</div>
-                </div>
+                <Movie movie={movie} />
             )}
         </div>
     )
