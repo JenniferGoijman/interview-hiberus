@@ -1,0 +1,16 @@
+.ant-menu, .ant-menu-light, .ant-menu-root, .ant-menu-horizontal {
+    background-color: #17181b;
+    border-bottom: 1px solid #17181b;
+    color: #727476;
+    font-weight: 600;
+}
+
+.ant-menu, .ant-menu-sub {
+    background-color: #17181b!important;
+}
+
+.ant-menu-item, .ant-menu-item-only-child {
+    a {
+        color: #727476!important;
+    }
+}
