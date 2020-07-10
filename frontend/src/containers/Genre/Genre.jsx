@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { Spin } from 'antd';
+
 import { getAll } from '../../redux/actions/genres';
 import Movie from '../../components/Movie/Movie';
 import NotFound from '../../components/NotFound/NotFound';
 
 const Genre = props => {
-    //const history = useHistory();
-    const [currentGenre, setCurrentGenre] = useState(undefined);
+    const [currentGenre, setCurrentGenre] = useState(null);
     const [notFound, setNotFound] = useState(false);
-    //const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getAll()
@@ -19,17 +20,19 @@ const Genre = props => {
             } else {
                 setNotFound(true)
             }
-            //setLoading(false);
+            setLoading(false);
         });
 
         return () => {
-            setCurrentGenre(undefined);
+            setCurrentGenre(null);
         }
     }, [])
 
     return (
         <div className="movies-container">
             {notFound && <NotFound />} 
+
+            {loading && <Spin size="large" />}
 
             {currentGenre && 
                 props.movies?.filter(movie => movie.genre_ids.includes(currentGenre?.id)).map(movie =>
