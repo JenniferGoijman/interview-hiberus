@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import './Header.scss';
 import { Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
+import { getAll } from '../../redux/actions/genres';
 
 const { SubMenu } = Menu;
 
-const Header = () => {
+const Header = props => {
     const [current, setCurrent] = useState();
+
+    useEffect(() => {
+        getAll()
+    }, [])
     
     const handleClick = e => {    
         setCurrent(e.key);
@@ -19,14 +25,14 @@ const Header = () => {
                     Movies
                 </NavLink>
             </Menu.Item>
-            {/* <SubMenu title="Genres">
-                <Menu.Item key="setting:1">Option 1</Menu.Item>
-                <Menu.Item key="setting:2">Option 2</Menu.Item>
-                <Menu.Item key="setting:3">Option 3</Menu.Item>
-                <Menu.Item key="setting:4">Option 4</Menu.Item> 
-            </SubMenu> */}
+            <SubMenu title="Genres">
+                {props.genres.map(genre =>
+                    <Menu.Item key={"genre:" + genre.id}>{genre.name}</Menu.Item>
+                )}
+            </SubMenu>
       </Menu>
     )
 }
 
-export default Header;
+const mapStateToProps = ({genre}) => ({ genres: genre.genres });
+export default connect(mapStateToProps)(Header);

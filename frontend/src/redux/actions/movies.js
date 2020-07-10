@@ -3,7 +3,7 @@ import store from '../store';
 
 export const getAll = async() => {
     try {
-        //const res = await axios.get('http://localhost:3001/phones');
+        //const res = await axios.get('http://localhost:3001/movies');
         const res = [ 
             {
                 popularity: 467.358,
