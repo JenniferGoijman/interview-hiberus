@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './Movie.scss';
 import { Rate } from 'antd';
 
 const Movie = ({movie}) => {
+    const history = useHistory();
     const [rating, setRating] = useState(movie.vote_average/2);
 
     const handleRatingChange = value => {
         setRating(value);
     };
 
+    const showMovieDetails = movie_id => {
+        history.push('/movie/'+ movie_id);
+    }
+
     return (
-        <div className="movie-container" key={movie.id}>
+        <div className="movie-container" key={movie.id} onClick={showMovieDetails.bind(this, movie.id)}>
             <span className="movie-rating">
                 <span><Rate allowHalf value={rating} onChange={handleRatingChange}/></span>
             </span>

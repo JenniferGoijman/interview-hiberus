@@ -1,0 +1,49 @@
+.movie-details-container {
+    min-height: 100vh;
+    background-color: #17181b;
+    color: #fcfcee;
+    padding: 2em 6em;
+
+    .movie-details {
+        display: flex;
+        padding: 3em 6em;
+        border-radius: 10px;
+        background-color: rgba(55, 55, 55, 0.8);
+        padding: 30px;
+    
+        img {
+            border-radius: 5px;
+        }
+    
+        .info {    
+            margin: 0 2em;
+
+            .title {
+                font-size: 3vw;
+                font-weight: bold;
+            }
+
+            .epigraph {
+                font-size: 1.5em;
+                display: flex;
+                
+                .date {
+                    margin-right: 5px;
+                }
+
+                .ant-rate {
+                    margin-left: 5px;
+                    font-size: 18px;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        
+            .overview {
+                font-size: 1.1em;
+                font-weight: 500;
+                margin-top: 20px;
+            }
+        }
+    }
+}
