@@ -7,27 +7,27 @@ export const getAll = async() => {
         const res = [ 
             {
             id: 28,
-            name: "Acción"
+            name: "Action"
             },
             {
             id: 12,
-            name: "Aventura"
+            name: "Adventure"
             },
             {
             id: 16,
-            name: "Animación"
+            name: "Animation"
             },
             {
             id: 35,
-            name: "Comedia"
+            name: "Comedy"
             },
             {
             id: 80,
-            name: "Crimen"
+            name: "Crime"
             },
             {
             id: 99,
-            name: "Documental"
+            name: "Documentary"
             },
             {
             id: 18,
@@ -35,27 +35,27 @@ export const getAll = async() => {
             },
             {
             id: 10751,
-            name: "Familia"
+            name: "Family"
             },
             {
             id: 14,
-            name: "Fantasía"
+            name: "Fantasy"
             },
             {
             id: 36,
-            name: "Historia"
+            name: "History"
             },
             {
             id: 27,
-            name: "Terror"
+            name: "Horror"
             },
             {
             id: 10402,
-            name: "Música"
+            name: "Music"
             },
             {
             id: 9648,
-            name: "Misterio"
+            name: "Mystery"
             },
             {
             id: 10749,
@@ -63,19 +63,19 @@ export const getAll = async() => {
             },
             {
             id: 878,
-            name: "Ciencia ficción"
+            name: "Science Fiction"
             },
             {
             id: 10770,
-            name: "Película de TV"
+            name: "TV Movie"
             },
             {
             id: 53,
-            name: "Suspense"
+            name: "Thriller"
             },
             {
             id: 10752,
-            name: "Bélica"
+            name: "War"
             },
             {
             id: 37,
