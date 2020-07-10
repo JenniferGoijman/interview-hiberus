@@ -7,6 +7,7 @@ import Header from './components/Header/Header';
 import Login from './containers/Login/Login';
 import Register from './containers/Register/Register';
 import Movies from './containers/Movies/Movies';
+import Genre from './containers/Genre/Genre';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route path='/login' component={Login} exact />
           <Route path='/register' component={Register} exact />
+          <Route path='/genre/:id' component={Genre} exact />
           <Route path='' component={Movies} exact />
         </Switch>
       </BrowserRouter>
