@@ -36,7 +36,19 @@ const Header = props => {
                     </Menu.Item>
                 )}
             </SubMenu>
-            <Search placeholder="Search by movies title" ></Search>
+            <SubMenu title="Sort by">
+                <Menu.Item key={"title:az"}>
+                    <NavLink to={'/movies/sort/az'} exact>
+                        Title A-Z
+                    </NavLink>
+                </Menu.Item>
+                <Menu.Item key={"title:za"}>
+                    <NavLink to={'/movies/sort/za'} exact>
+                        Title Z-A
+                    </NavLink>
+                </Menu.Item>
+            </SubMenu>
+            <Search placeholder="Search by movies title"></Search>
         </Menu>
     )
 }

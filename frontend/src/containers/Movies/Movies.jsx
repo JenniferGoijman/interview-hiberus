@@ -13,11 +13,21 @@ const Movies = props => {
             const query = props.match.params.query;
             if (query) {
                 setMovies(res.filter(movie => movie.original_title.toLowerCase().includes(query)));
-            } else {
+            } 
+
+            const sortby = props.match.params.by;
+            if (sortby==='az') {
+                setMovies(res.sort((a, b) => a.original_title.localeCompare(b.original_title)));
+            }
+            if (sortby==='za') {
+                setMovies(res.sort((a, b) => a.original_title.localeCompare(b.original_title)).reverse());
+            }
+            
+            if (!query && !sortby) {
                 setMovies(res);
             }
         })
-    }, [props.match.params.query])
+    }, [props.match.params])
 
     return (
         <div className="movies-container">
