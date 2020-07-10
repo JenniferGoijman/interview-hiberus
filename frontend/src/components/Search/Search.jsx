@@ -10,8 +10,6 @@ const { Option } = Select;
 
 const Search = props => {
     const history = useHistory();
-    const defaultValue = history.location.pathname.replace('/movies', '').replace('/', ''); //parameter from url
-    
     useEffect(() => { 
         getAll();
     }, []);
@@ -29,7 +27,6 @@ const Search = props => {
         <Input 
             placeholder="Search by movie title" 
             prefix={<SearchOutlined />}
-            defaultValue={defaultValue}
             style={{ width:200, position:'absolute', right:20, marginTop:9 }}
             onChange={handleChange}
         />

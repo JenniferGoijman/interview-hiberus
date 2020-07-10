@@ -7,7 +7,7 @@ const NotFound = () => {
     const history = useHistory();
 
     const goHome = () => {
-        history.push('/');
+        history.push('/movies');
     }
 
     return (
