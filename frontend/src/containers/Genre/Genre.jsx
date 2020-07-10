@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getAll } from '../../redux/actions/genres';
 import Movie from '../../components/Movie/Movie';
+import NotFound from '../../components/NotFound/NotFound';
 
 const Genre = props => {
     //const history = useHistory();
     const [currentGenre, setCurrentGenre] = useState(undefined);
-    //const [notFound, setNotFound] = useState(false);
+    const [notFound, setNotFound] = useState(false);
     //const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -16,7 +17,7 @@ const Genre = props => {
             if (genre) {
                 setCurrentGenre(genre)
             } else {
-                //setNotFound(true)
+                setNotFound(true)
             }
             //setLoading(false);
         });
@@ -28,9 +29,13 @@ const Genre = props => {
 
     return (
         <div className="movies-container">
-            {props.movies?.filter(movie => movie.genre_ids.includes(currentGenre?.id)).map(movie =>
-                <Movie movie={movie} />
-            )}
+            {notFound && <NotFound />} 
+
+            {currentGenre && 
+                props.movies?.filter(movie => movie.genre_ids.includes(currentGenre?.id)).map(movie =>
+                    <Movie movie={movie} />
+                )
+            }
         </div>
     )
 }
