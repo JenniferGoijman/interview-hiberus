@@ -11,9 +11,9 @@ const { SubMenu } = Menu;
 
 const Header = props => {
     const [current, setCurrent] = useState();
-    
+
     useEffect(() => {
-        getAll()
+        getAll();
     }, [])
     
     const handleClick = e => {    
@@ -23,7 +23,7 @@ const Header = props => {
     return (
         <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
             <Menu.Item key="movies">
-                <NavLink to='/' exact>
+                <NavLink to='/movies' exact>
                     Movies
                 </NavLink>
             </Menu.Item>
@@ -36,7 +36,7 @@ const Header = props => {
                     </Menu.Item>
                 )}
             </SubMenu>
-            <Search placeholder="Search by movies title"></Search>
+            <Search placeholder="Search by movies title" ></Search>
         </Menu>
     )
 }
