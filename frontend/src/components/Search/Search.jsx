@@ -27,7 +27,7 @@ const Search = props => {
         <Input 
             placeholder="Search by movie title" 
             prefix={<SearchOutlined />}
-            style={{ width:200, position:'absolute', right:20, marginTop:9 }}
+            style={{ width:200, position:'absolute', right:170, marginTop:9 }}
             onChange={handleChange}
         />
     )

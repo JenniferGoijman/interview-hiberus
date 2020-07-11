@@ -59,6 +59,22 @@ const UserController = {
     },
     getInfo(req, res) {
         res.send(req.user);
-    }
+    },
+    async logout(req, res) {
+        try{
+            const token = await Token.findOne({
+                where: {
+                    token: req.headers.authorization
+                }
+            })
+            token.destroy()
+            res.send({ message: 'User successfully disconnected.' })
+        }catch (error) {
+            console.log(error);
+            res.status(500).send({
+                message: 'There was a problem trying to disconnect the user.'
+            });
+        }
+    },
 }
 module.exports = UserController;
