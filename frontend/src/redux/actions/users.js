@@ -13,10 +13,21 @@ export const login = async(user) => {
     localStorage.setItem('authToken', res.data.token);
     return res;
 }
+export const getMyUser = async() => {
+    const res = await axios.get('http://localhost:3001/users/user', {
+        headers: {
+            Authorization: localStorage.getItem('authToken')
+        }
+    });
+    store.dispatch({
+        type: 'SET_MY_USER',
+        payload: res.data
+    });
+}
 // export const logout = async() => {
 //     const res = await axios.get(API_URL + 'users/logout', {
 //         headers: {
-//             Authorization: "Bearer " + localStorage.getItem('authToken')
+//             Authorization: localStorage.getItem('authToken')
 //         }
 //     })
 //     localStorage.removeItem('authToken');
@@ -25,14 +36,3 @@ export const login = async(user) => {
 //     })
 //     return res;
 // }
-export const getMyUser = async() => {
-    const res = await axios.get('http://localhost:3000/users/user', {
-        headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('authToken')
-        }
-    });
-    store.dispatch({
-        type: 'SET_MY_USER',
-        payload: res.data
-    });
-}

@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 import movie from "./movie";
 import genre from "./genre";
+import user from "./user";
 
 const reducer = combineReducers({
     movie,
-    genre
+    genre,
+    user
 })
 export default reducer;
