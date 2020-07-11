@@ -1,6 +1,7 @@
 const userReducer = (state = {}, action) => {
     switch (action.type) {
         case 'LOGIN':
+        case 'LOGOUT':
         case 'SET_MY_USER':
             return {
                 ...state,
