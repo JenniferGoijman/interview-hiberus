@@ -28,7 +28,7 @@ const Header = props => {
                 </NavLink>
             </Menu.Item>
             <SubMenu title="Genres">
-                {props.genres.map(genre =>
+                {props.genres?.map(genre =>
                     <Menu.Item key={"genre:" + genre.id}>
                         <NavLink to={'/genre/'+ genre.id} exact>
                             {genre.name}
