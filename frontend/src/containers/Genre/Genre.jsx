@@ -22,11 +22,7 @@ const Genre = props => {
             }
             setLoading(false);
         });
-
-        return () => {
-            setCurrentGenre(null);
-        }
-    }, [])
+    }, [props.match.params])
 
     return (
         <div className="movies-container">
@@ -42,7 +38,6 @@ const Genre = props => {
         </div>
     )
 }
-
 
 const mapStateToProps = ({movie}) => ({ movies: movie.movies });
 export default connect(mapStateToProps)(Genre);
