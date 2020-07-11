@@ -1,11 +1,23 @@
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { useHistory } from 'react-router-dom';
+import { Form, Input, Button, notification } from 'antd';
 import './Login.scss';
+
 import Logo from '../../img/logo.png';
+import { login } from '../../redux/actions/users';
 
 const Login = () => {
+    const history = useHistory();
+
     const onFinish = values => {
-        console.log('Success:', values);
+        const user = values;
+        login(user)
+        .then(res => {
+            history.push('/movies');
+        })
+        .catch((res) =>{
+            notification.error({message:'Login', description:'There was a problem trying to log in.'})
+        })
       };
     
       const onFinishFailed = errorInfo => {
@@ -21,11 +33,11 @@ const Login = () => {
                     </div>
                 </div>
                 <Form name="login" onFinish={onFinish} onFinishFailed={onFinishFailed}>
-                    <Form.Item name="username" style={{width:'100%'}}
-                        rules={[{ required: true, message: 'Please input your username!' }]} >
-                        <Input placeholder="Username" />
+                    <Form.Item name="email"
+                        rules={[{ required: true, message: 'Please input your email!' }]} >
+                        <Input placeholder="Email" />
                     </Form.Item>
-                    <Form.Item name="password" style={{width:'100%'}}
+                    <Form.Item name="password"
                         rules={[{ required: true, message: 'Please input your password!' }]}>
                         <Input.Password placeholder="Password" />
                     </Form.Item>

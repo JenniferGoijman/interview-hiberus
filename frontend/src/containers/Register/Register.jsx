@@ -1,11 +1,27 @@
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { useHistory } from 'react-router-dom';
+import { Form, Input, Button, notification } from 'antd';
 import './Register.scss';
+
 import Logo from '../../img/logo.png';
+import { register } from '../../redux/actions/users'
 
 const Register = () => {
+    const history = useHistory();
+
     const onFinish = values => {
-        console.log('Received values of form: ', values);
+        const user = values;
+        register(user)
+        .then(res => {
+            notification.success({message:'Register', description:res.data.message})
+            setTimeout(() => {
+                history.push('/login')
+            }, 1500);
+        })
+        .catch((res) =>{
+            notification.error({message:'Register', description:'There was a problem to register the user'})
+            console.log(res)
+        })
       };
 
     return (
