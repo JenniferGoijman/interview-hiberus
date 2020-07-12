@@ -39,3 +39,10 @@ npm run start
 ```
 
 After that, the browser will launch the application in http://localhost:3000/ and will consume the API https://acme-enterprises.herokuapp.com/
+
+You can log in using the next info:
+
+```
+Username: janedoe@gmail.com
+Password: 123
+```
