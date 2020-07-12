@@ -13,6 +13,17 @@ export const getAll = async() => {
         console.error(error)
     }
 }
+export const getRating = async(movie_id) => {
+    try {
+        return await axios.get('http://localhost:3001/movieratings/' + movie_id, {
+            headers: {
+                Authorization: localStorage.getItem('authToken')
+            }
+        });
+    } catch (error) {
+        console.error(error)
+    }
+}
 export const insertRating = async(movierating) => {
     try {
         return await axios.post('http://localhost:3001/movieratings/', movierating, {
@@ -24,9 +35,9 @@ export const insertRating = async(movierating) => {
         console.error(error)
     }
 }
-export const getRating = async(movie_id) => {
+export const updateRating = async(id, movierating) => {
     try {
-        return await axios.get('http://localhost:3001/movieratings/' + movie_id, {
+        return await axios.put('http://localhost:3001/movieratings/' + id, movierating, {
             headers: {
                 Authorization: localStorage.getItem('authToken')
             }

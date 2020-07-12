@@ -10,13 +10,21 @@ const MovieRatingController = {
         })
         .then(movieratings => res.send(movieratings))
     },
-    insert(req, res) {
-        console.log(req)
+    insert(req, res) {       
         MovieRating.create({
-            //UserId: req.user.id,
-            UserId: req.body.UserId,
+            UserId: req.user.id,
             MovieId: req.body.MovieId,
             rating: req.body.rating
+        })
+        .then(order => res.send(order) );
+    },
+    update(req, res) {       
+        MovieRating.update({
+            rating: req.body.rating
+        }, {
+            where: {
+                id: req.params.id
+            }
         })
         .then(order => res.send(order) );
     }

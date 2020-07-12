@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Spin, Rate } from 'antd';
 import './MovieDetails.scss';
 
-import { getAll, insertRating } from '../../redux/actions/movies';
+import { getAll, getRating, insertRating, updateRating } from '../../redux/actions/movies';
 import NotFound from '../../components/NotFound/NotFound';
 
 const MovieDetails = props => {
@@ -17,7 +17,9 @@ const MovieDetails = props => {
         .then(res => {
             const movie = res.data?.find(m => m.id == props.match.params.id);
             if (movie) {
-                setCurrentMovie(movie)
+                setCurrentMovie(movie);
+                getRating(movie.id)
+                .then(res => setRating(res.data.length>0? res.data[0].rating : null))
             } else {
                 setNotFound(true)
             }
@@ -26,14 +28,24 @@ const MovieDetails = props => {
     }, [])
 
     const handleRatingChange = value => {
-        //getRating(currentMovie.id)
         const movierating = {
-            UserId: props.myUser.id,
             MovieId: currentMovie.id,
             rating: value
         }
-        console.log(movierating)
-        insertRating(movierating);
+        getRating(currentMovie.id)
+        .then(res => {
+            if (res.data.length > 0) {
+                console.log(res.data[0].id)
+                console.log("update")
+                updateRating(res.data[0].id, movierating);
+            } else {
+                console.log("insert")
+                insertRating(movierating);
+         }   }
+        )
+        
+        
+        
         setRating(value);
     };
 
