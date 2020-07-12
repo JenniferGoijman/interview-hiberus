@@ -3,6 +3,9 @@
     background-color: #17181b;
     color: #fcfcee;
     padding: 2em 6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .movie-details {
         display: flex;
@@ -26,6 +29,7 @@
             .epigraph {
                 font-size: 1.5em;
                 display: flex;
+                justify-content: space-between;
                 
                 .date {
                     margin-right: 5px;

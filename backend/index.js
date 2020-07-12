@@ -6,6 +6,7 @@ const PORT = 3001;
 const usersRouter = require('./routes/users');
 const moviesRouter = require('./routes/movies');
 const categoriesRouter = require('./routes/categories');
+const movieratingsRouter = require('./routes/movieratings');
 
 app.use(morgan('dev'));
 app.use(express.json());
@@ -21,5 +22,6 @@ app.options('/*',(req, res, next) => res.send());
 app.use('/users', usersRouter);
 app.use('/movies', moviesRouter);
 app.use('/genres', categoriesRouter);
+app.use('/movieratings', movieratingsRouter);
 
 app.listen(PORT, ()=> console.log('server running on PORT '+PORT));
