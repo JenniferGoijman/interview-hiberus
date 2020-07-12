@@ -28,8 +28,10 @@ const Genre = props => {
         <div className="movies-container">
             {notFound && <NotFound />} 
 
-            {loading && <Spin size="large" />}
-            {/* category.id === currentGenre?.id */}
+            {loading && <div className="spin">
+                <Spin size="large" />
+            </div>}
+
             {currentGenre && currentGenre?.Movies.map(movie =>
                     <Movie movie={movie} />
                 )

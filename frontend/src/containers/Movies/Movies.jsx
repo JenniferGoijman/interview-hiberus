@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { Spin } from 'antd';
 import './Movies.scss'; 
+
 import { getAll } from '../../redux/actions/movies';
 import Movie from '../../components/Movie/Movie';
 
 const Movies = props => {
     const [ movies, setMovies] = useState();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getAll()
@@ -26,14 +29,20 @@ const Movies = props => {
             if (!query && !sortby) {
                 setMovies(res?.data);
             }
+            setLoading(false);
         })
     }, [props.match.params])
 
     return (
         <div className="movies-container">
+
+            {loading && <div className="spin">
+                <Spin size="large" />
+            </div>}
+
             {movies?.map(movie =>
-                    <Movie movie={movie} />
-                )
+                <Movie movie={movie} />
+            )
             }
         </div>
     )

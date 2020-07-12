@@ -4,5 +4,12 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: #17181b
+    background-color: #17181b;
+
+    .spin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 }
