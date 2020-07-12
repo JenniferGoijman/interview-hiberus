@@ -12,19 +12,19 @@ const Movies = props => {
         .then(res => {
             const query = props.match.params.query;
             if (query) {
-                setMovies(res.filter(movie => movie.original_title.toLowerCase().includes(query)));
+                setMovies(res.data.filter(movie => movie.original_title.toLowerCase().includes(query)));
             } 
 
             const sortby = props.match.params.by;
             if (sortby==='az') {
-                setMovies(res.sort((a, b) => a.original_title.localeCompare(b.original_title)));
+                setMovies(res.data.sort((a, b) => a.original_title.localeCompare(b.original_title)));
             }
             if (sortby==='za') {
-                setMovies(res.sort((a, b) => a.original_title.localeCompare(b.original_title)).reverse());
+                setMovies(res.data.sort((a, b) => a.original_title.localeCompare(b.original_title)).reverse());
             }
             
             if (!query && !sortby) {
-                setMovies(res);
+                setMovies(res.data);
             }
         })
     }, [props.match.params])
