@@ -18,8 +18,10 @@ const MovieDetails = props => {
             const movie = res.data?.find(m => m.id == props.match.params.id);
             if (movie) {
                 setCurrentMovie(movie);
-                getRating(movie.id)
-                .then(res => setRating(res.data.length>0? res.data[0].rating : null))
+                if (props.myUser) {
+                    getRating(movie.id)
+                    .then(res => setRating(res.data.length>0? res.data[0].rating : null))
+                }
             } else {
                 setNotFound(true)
             }
@@ -34,10 +36,11 @@ const MovieDetails = props => {
         }
         getRating(currentMovie.id)
         .then(res => {
-            if (res.data.length > 0) {
-                console.log(res.data[0].id)
+            const currentRating = res.data;
+            if (currentRating.length > 0) {
+                console.log(currentRating[0].id)
                 console.log("update")
-                updateRating(res.data[0].id, movierating);
+                updateRating(currentRating[0].id, movierating);
             } else {
                 console.log("insert")
                 insertRating(movierating);
@@ -71,7 +74,9 @@ const MovieDetails = props => {
                                 )}
                             </div>
                             <div> • </div>
-                            <Rate allowHalf value={rating} onChange={handleRatingChange}/>
+                            {props.myUser &&  <Rate allowHalf value={rating} onChange={handleRatingChange}/>}
+                            {!props.myUser &&  <Rate allowHalf disabled value={currentMovie.vote_average/2} />}
+
                             <div>Vote average: {currentMovie.vote_average}</div>
                         </div>                
                         <div className="overview">{currentMovie.overview}</div>

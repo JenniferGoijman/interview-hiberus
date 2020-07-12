@@ -24,7 +24,7 @@ const Movies = props => {
             }
             
             if (!query && !sortby) {
-                setMovies(res.data);
+                setMovies(res?.data);
             }
         })
     }, [props.match.params])
