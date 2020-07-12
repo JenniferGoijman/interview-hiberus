@@ -2,10 +2,10 @@ import store from '../store';
 import axios from 'axios';
 
 export const register = async(user) => {
-    return axios.post('http://localhost:3001/users/register', user)
+    return axios.post('https://acme-enterprises.herokuapp.com/users/register', user)
 }
 export const login = async(user) => {
-    const res = await axios.post('http://localhost:3001/users/login', user);
+    const res = await axios.post('https://acme-enterprises.herokuapp.com/users/login', user);
     store.dispatch({
         type: 'LOGIN',
         payload: res.data.user
@@ -14,7 +14,7 @@ export const login = async(user) => {
     return res;
 }
 export const getMyUser = async() => {
-    const res = await axios.get('http://localhost:3001/users/user', {
+    const res = await axios.get('https://acme-enterprises.herokuapp.com/users/user', {
         headers: {
             Authorization: localStorage.getItem('authToken')
         }
@@ -25,7 +25,7 @@ export const getMyUser = async() => {
     });
 }
 export const logout = async() => {
-    const res = await axios.get('http://localhost:3001/users/logout', {
+    const res = await axios.get('https://acme-enterprises.herokuapp.com/users/logout', {
         headers: {
             Authorization: localStorage.getItem('authToken')
         }
