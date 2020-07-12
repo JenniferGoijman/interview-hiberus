@@ -1,6 +1,6 @@
-# Phone Catalogue
+# ACME enterprises
 
-This was a code challenge for an interviewing at [Hiberus](https://www.hiberus.com/)
+This was a code challenge for an interview at [Hiberus](https://www.hiberus.com/)
 
 ![foto](frontend/src/img/Readme/user.gif)
 
@@ -38,7 +38,7 @@ cd /path/to/file/frontend
 npm run start
 ```
 
-After that, the browser will launch the application in http://localhost:3000/ and will consume the API https://acme-enterprises.herokuapp.com/
+After that, the browser will launch the application in http://localhost:3000/ and it will consume the API https://acme-enterprises.herokuapp.com/
 
 You can log in using the next info:
 
