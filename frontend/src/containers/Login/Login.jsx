@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { Form, Input, Button, notification } from 'antd';
 import './Login.scss';
 
@@ -42,11 +42,14 @@ const Login = () => {
                         <Input.Password placeholder="Password" />
                     </Form.Item>
                     <Form.Item>
-                        <Button htmlType="submit" style={{width:'100%'}}>
+                        <Button htmlType="submit" ghost style={{width:'100%'}}>
                             Submit
                         </Button>
                     </Form.Item>
                 </Form>
+            </div>
+            <div className="form">
+                Don't have an account yet? <NavLink to='/register' exact> Register here. </NavLink>
             </div>
         </div>
     )
