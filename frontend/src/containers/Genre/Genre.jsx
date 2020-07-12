@@ -14,7 +14,7 @@ const Genre = props => {
     useEffect(() => {
         getAll()
         .then(res => {
-            const genre = res?.find(p => p.id == props.match.params.id);
+            const genre = res.data?.find(p => p.id == props.match.params.id);
             if (genre) {
                 setCurrentGenre(genre)
             } else {
@@ -29,9 +29,8 @@ const Genre = props => {
             {notFound && <NotFound />} 
 
             {loading && <Spin size="large" />}
-
-            {currentGenre && 
-                props.movies?.filter(movie => movie.genre_ids.includes(currentGenre?.id)).map(movie =>
+            {/* category.id === currentGenre?.id */}
+            {currentGenre && currentGenre?.Movies.map(movie =>
                     <Movie movie={movie} />
                 )
             }

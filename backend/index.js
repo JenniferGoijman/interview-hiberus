@@ -20,6 +20,6 @@ app.options('/*',(req, res, next) => res.send());
 
 app.use('/users', usersRouter);
 app.use('/movies', moviesRouter);
-app.use('/categories', categoriesRouter);
+app.use('/genres', categoriesRouter);
 
 app.listen(PORT, ()=> console.log('server running on PORT '+PORT));
