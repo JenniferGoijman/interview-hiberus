@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       rating: {
-        type: Sequelize.INTEGER
+        type: Sequelize.FLOAT
       },
       createdAt: {
         allowNull: false,
